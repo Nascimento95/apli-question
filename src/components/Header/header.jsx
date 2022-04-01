@@ -1,10 +1,11 @@
-import { Link} from "react-router-dom"
+import { StyledLink } from "./Header-style"
 
 function Header() {
     return (
         <nav>
-            <Link to="/">Acceuil</Link>
-            <Link to="/survey/42">Questionnaire</Link>
+            <StyledLink to="/">Acceuil</StyledLink>
+            <StyledLink to="/survey/1">Questionnaire</StyledLink>
+            <StyledLink to="/freelances">Freelances</StyledLink>
         </nav>
     )
 }
