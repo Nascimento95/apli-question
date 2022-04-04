@@ -7,21 +7,26 @@ import Header from './components/Header/header';
 import Notfound from './pages/Notfound/NotFound';
 import Results from './pages/Results/Results';
 import Freelances from './pages/Freelances/Freelances';
-import { GlobalStyle } from './Global-style.jsx';
+import { GlobalStyle } from './utils/style/Global-style.jsx';
+import { ThemeProvider } from './utils/context/Context.jsx';
+
 
 const root = createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalStyle/>
-      <Header/>
-      <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route path="/survey/:questionId" element={<Survey />}/>
-          <Route path="/results" element={<Results />}/>
-          <Route path="/freelances" element={<Freelances />}/>
-          <Route path='*' element={<Notfound/>} />
-      </Routes>
+      <ThemeProvider>
+        <GlobalStyle/>
+        <Header/>
+        <Routes>
+            <Route exact path="/" element={<Home />}/>
+            <Route path="/survey/:questionId" element={<Survey />}/>
+            <Route path="/results" element={<Results />}/>
+            <Route path="/freelances" element={<Freelances />}/>
+            <Route path='*' element={<Notfound/>} />
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

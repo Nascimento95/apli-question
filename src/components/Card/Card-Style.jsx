@@ -7,17 +7,22 @@ export const CardLabel = styled.span`
     font-weight: bold;
 `
 export const CardImage = styled.img`
-    height: 80px;
-    width : 80px;
-    border-radius : 50%
+    height: 148px;
+    width : 148px;
+    border-radius : 50%;
+    margin-top: 30px;
+    margin-bottom: 32px;
 `
 export const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* justify-items: center; */
     padding: 15px;
     background-color: ${colors.backgroundLight};
     border-radius: 30px;
-    width: 350px;
+    width: 339px;
+    height: 334px;
     transition: 200ms;
     
     &:hover {

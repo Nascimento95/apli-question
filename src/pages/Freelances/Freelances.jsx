@@ -1,41 +1,45 @@
-import DefaultPicture from '../../assets/GoArt_Blue Blooming_oeuz.jpg'
+// import DefaultPicture from '../../assets/GoArt_Blue Blooming_oeuz.jpg'
 import Card from '../../components/Card/Card';
-import { CardsContainer } from './Freelance-style';
+import { CardsContainer,Container, ErrorText } from './Freelance-style';
+import { useState, useEffect } from 'react';
+import profileFreelance from '../../api/FetchFreelanceProfile';
+import { Loader } from '../../utils/Atoms';
 
 function Freelances() {
-    
-    const freelanceProfiles = [
-        {
-            name: 'Jane Doe',
-            jobTitle: 'Devops',
-            picture: DefaultPicture,
-        },
-        {
-            name: 'John Doe',
-            jobTitle: 'Developpeur frontend',
-            picture: DefaultPicture,
-        },
-        {
-            name: 'Jeanne Biche',
-            jobTitle: 'Développeuse Fullstack',
-            picture: DefaultPicture,
-        },
-    ]
+    const [freelanceProfiles, setFreelanceProfiles] = useState([])
+    const [dataLoadingFreelance, setDataLoadingFreelance] = useState(false)
+    const [errorData, setErrorData] =useState(false)
+    useEffect(() => {
+        profileFreelance(setFreelanceProfiles, setDataLoadingFreelance, setErrorData)
+    }, [])
+    console.log("state", freelanceProfiles)
+    if( errorData ) {
+        return <ErrorText>Une erreur est survenue.</ErrorText>
+    }
     
     return (
-        <div>
-            <h1>Freelance</h1>
-            <CardsContainer>
-                {freelanceProfiles.map((profile, index) => 
-                    <Card 
-                        key={`${index}-${profile.name}`}
-                        label={profile.jobTitle}
-                        title={profile.name}
-                        picture={profile.picture}
-                    />
-                )}
-            </CardsContainer>
-        </div>
+        <Container>
+            <h1 className='title'>Trouvez votre prestataire</h1>
+            <h2>Chez Shiny nous réunissons les meilleures profils pour vous.</h2>
+                {dataLoadingFreelance ? 
+                <div className='container-loading'>
+                    <Loader/> 
+                </div>
+                : 
+                <CardsContainer>
+                    {freelanceProfiles.map((profile, index) => 
+                        <Card 
+                            key={`${index}-${profile.name}`}
+                            label={profile.job}
+                            title={profile.name}
+                            picture={profile.picture}
+                        />
+                    )}
+                </CardsContainer>
+                }
+                
+            
+        </Container>
     )
 }
 

@@ -37,5 +37,6 @@ export const StyledLink = styled(Link)`
     :hover{
         background-color: ${colors.primary};
         border-radius: 29px;
+        color: white;
     }
 `
