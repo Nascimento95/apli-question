@@ -5,6 +5,27 @@ export const SurveyContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 146px;
+    .yes-or-no{
+        display: flex;
+        .no{
+            margin-left: 20px;
+        }
+    }
+`
+
+export const YesButton = styled.button`
+    width: 291px;
+    height: 96px;
+    border-radius: 31px;
+    border: none;
+    background: ${colors.backgroundLight};
+    font-size: 25px;
+    margin-top: 63px;
+    &:hover{
+        background-color: ${colors.primary};
+        color: white;
+    }
 `
 
 export const QuestionTitle = styled.h2`
