@@ -1,4 +1,5 @@
 import colors from './style/colors.js'
+import { Link } from 'react-router-dom'
 import styled, {keyframes} from 'styled-components'
 
 const rotate = keyframes`
@@ -17,4 +18,16 @@ export const Loader = styled.div`
     border-bottom: transparent;
     animation: ${rotate} 1s infinite linear;
     
+`
+export const StyledLink = styled(Link)`
+    padding: 10px 15px;
+    color: ${({ $theme }) => ($theme === 'light' ? '#8186a0' : '#ffffff')};
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    ${(props) =>
+    props.$isFullLink &&
+    `color: white; 
+    border-radius: 30px; 
+    background-color: ${colors.primary};`}
 `
