@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .title{
-        text-align: center;
         font-size: 30px;
     }
     h2{
         font-size: 20px;
-        text-align: center;
         color: #8186A0;
     }
     .container-loading{
@@ -16,6 +17,7 @@ export const Container = styled.div`
         justify-content: center;
         width: 100vw;
     }
+
 `
 export const ErrorText = styled.h1`
     color : red;
@@ -23,12 +25,11 @@ export const ErrorText = styled.h1`
 `
 
 export const CardsContainer = styled.div`
-    width: 400px;
+
     padding: 97px 342px 276px 342px;
     justify-items: center;
-    /* align-items: center; */
     display: grid;
-    gap: 24px;
+    gap: 70px;
     grid-template-rows: 350px 350px;
     grid-template-columns: repeat(2, 1fr);
 `
